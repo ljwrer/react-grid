@@ -23,12 +23,12 @@ class App extends Component {
                         type: col.type,
                         map: col.map,
                     }
-                    return (<TableInput {...props} onEdit={this.handleEdit}/>)
+                    return (<TableInput key={`${props.name}-${props.index}`} {...props} onEdit={this.handleEdit.bind(this)}/>)
                 };
                 if (col.type === 'input') {
-                    col.renderHead = () => (<span>{`${col.title} (编辑框)`}</span>)
+                    col.renderHead = () => (<span onClick={()=>{alert(1)}}>{`${col.title} (编辑框)`}</span>)
                 } else if (col.type === 'select') {
-                    col.renderHead = () => (<span>{`${col.title} (下拉框)`}</span>)
+                    col.renderHead = () => (<span onClick={()=>{alert(1)}}>{`${col.title} (下拉框)`}</span>)
                 }
                 return col
             });
@@ -45,12 +45,9 @@ class App extends Component {
     }
 
     handleEdit({index,key,value}){
-        this.setState({
-            data:{
-                [index]:{
-                    [key]:value
-                }
-            }
+        this.setState((prevState) => {
+            prevState.data[index].value = value;
+            return prevState
         })
     }
 }

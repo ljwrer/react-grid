@@ -1,7 +1,6 @@
 /**
  * Created by Ray on 2017/6/26.
  */
-import PropTypes from 'prop-types';
 import React, {Component} from 'react';
 class TableInput extends Component {
     constructor(props){
@@ -14,16 +13,16 @@ class TableInput extends Component {
     render() {
         if(this.state.edit){
             if(this.props.type === 'input'){
-                return (<input value={this.state.currentValue} onChange={this.handleInputChange} onKeyUp={this.handleKeyUp}/>)
+                return (<input value={this.state.currentValue} onChange={this.handleInputChange.bind(this)} onKeyUp={this.handleKeyUp.bind(this)}/>)
             }else{
-                return (<select value={this.state.currentValue} onChange={this.submitEdit}>
+                return (<select value={this.state.currentValue} onChange={this.submitEdit.bind(this)}>
                     {
-                        Object.keys(this.props.map).map(key=>(<option value={key}>{this.props.map[key]}</option>))
+                        Object.keys(this.props.map).map(key=>(<option key={key} value={key}>{this.props.map[key]}</option>))
                     }
                 </select>)
             }
         }else {
-            return (<span>{this.state.currentValue}<button onClick={this.toggleEdit}>编辑</button></span>)
+            return (<span>{this.state.currentValue}<button onClick={this.toggleEdit.bind(this)}>编辑</button></span>)
         }
     }
     getValue(val){

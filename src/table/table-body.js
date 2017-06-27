@@ -7,21 +7,20 @@ class TableBody extends Component {
     render() {
         return (<tbody>
         {
-            this.props.rows.map((row,rowIndex)=>{
-                return this.props.columns.map((column)=>{
-                    let td;
-                    const value = row[column.key];
-                    if(column.render){
-                        td = column.render({
-                            index:rowIndex,
-                            value
-                        })
-                    }else {
-                        td = (<span>{value}</span>)
-                    }
-                    return td
-                })
-            })
+            this.props.rows.map((row,rowIndex)=>(<tr key={rowIndex}>
+                {
+                    this.props.columns.map((column,index)=>{
+                        let td;
+                        const value = row[column.key];
+                        if(column.render){
+                            td = (<td key={index}>{column.render({index:rowIndex, value})}</td>)
+                        }else {
+                            td = (<td key={index}><span>{value}</span></td>)
+                        }
+                        return td
+                    })
+                }
+            </tr>))
         }
         </tbody>)
     }

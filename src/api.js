@@ -2,22 +2,22 @@
  * Created by Ray on 2017/6/25.
  */
 import Mock from "mockjs";
-const columnx1 = {
-    "key": "name",
-    "title": "姓名",
-    "type": "input"
-};
-const columnx2 = {
-    "key": "status",
-    "title": "状态",
-    "type": "input",
-    "map": {
-        "normal": "正常",
-        "over": "过载",
-        "under": "欠载",
-        "empty": "空载"
-    }
-};
+// const columnx1 = {
+//     "key": "name",
+//     "title": "姓名",
+//     "type": "input"
+// };
+// const columnx2 = {
+//     "key": "status",
+//     "title": "状态",
+//     "type": "input",
+//     "map": {
+//         "normal": "正常",
+//         "over": "过载",
+//         "under": "欠载",
+//         "empty": "空载"
+//     }
+// };
 let columns1 = Mock.mock({
     "array|30": [
         {
