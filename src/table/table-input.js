@@ -13,7 +13,7 @@ class TableInput extends Component {
     render() {
         if(this.state.edit){
             if(this.props.type === 'input'){
-                return (<input value={this.state.currentValue} onChange={this.handleInputChange.bind(this)} onKeyUp={this.handleKeyUp.bind(this)}/>)
+                return (<input type="text" value={this.state.currentValue} onChange={this.handleInputChange.bind(this)} onKeyUp={this.handleKeyUp.bind(this)}/>)
             }else{
                 return (<select value={this.state.currentValue} onChange={this.submitEdit.bind(this)}>
                     {
@@ -22,7 +22,7 @@ class TableInput extends Component {
                 </select>)
             }
         }else {
-            return (<span>{this.state.currentValue}<button onClick={this.toggleEdit.bind(this)}>编辑</button></span>)
+            return (<span>{this.state.currentValue}<button type="button" className="button tiny" onClick={this.toggleEdit.bind(this)}>编辑</button></span>)
         }
     }
     getValue(val){

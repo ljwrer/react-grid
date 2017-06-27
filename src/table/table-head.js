@@ -8,9 +8,9 @@ class TableHead extends Component {
             {this.props.columns.map((column,index)=>{
                 let th;
                 if(column.renderHead){
-                    th = (<th key={index}>{column.renderHead()}</th>)
+                    th = (<th width="200" key={index}>{column.renderHead()}</th>)
                 }else {
-                    th = (<th key={index}>{column.title}</th>)
+                    th = (<th width="200" key={index}>{column.title}</th>)
                 }
                 return th
             })}
